@@ -4,12 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//here i can customize my theme
+const theme = createTheme();
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ThemeProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
