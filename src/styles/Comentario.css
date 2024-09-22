@@ -1,0 +1,32 @@
+.teste {
+  border: solid #4b83b8 2px;
+  border-radius: 10px;
+  margin: 20px;
+  width: 50%;
+}
+
+.user {
+  background-color: #cbe0f2;
+  border-radius: 10px;
+  margin: 2px;
+  height: 30px;
+}
+
+.idComment {
+  padding-top: 10px;
+  margin: 2px;
+  margin-bottom: 10px;
+}
+
+.titulo {
+  background-color: #f2cbed;
+  min-height: 40px;
+  margin: 2px;
+  border-radius: 10px;
+}
+
+.corpo {
+  min-height: 60px;
+  margin: 2px;
+  margin-bottom: 10px;
+}
