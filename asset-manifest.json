@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/mainPage/static/css/main.20f25b11.css",
-    "main.js": "/mainPage/static/js/main.b597fc72.js",
-    "static/js/453.8633fd65.chunk.js": "/mainPage/static/js/453.8633fd65.chunk.js",
-    "static/media/avatar_jorge.jpg": "/mainPage/static/media/avatar_jorge.52290cf83caa374e7712.jpg",
-    "static/media/apresentacao_paginajpeg.jpg": "/mainPage/static/media/apresentacao_paginajpeg.a7c9b575014f7022b35e.jpg",
-    "index.html": "/mainPage/index.html",
-    "main.20f25b11.css.map": "/mainPage/static/css/main.20f25b11.css.map",
-    "main.b597fc72.js.map": "/mainPage/static/js/main.b597fc72.js.map",
-    "453.8633fd65.chunk.js.map": "/mainPage/static/js/453.8633fd65.chunk.js.map"
+    "main.css": "/personal-page/static/css/main.20f25b11.css",
+    "main.js": "/personal-page/static/js/main.8f61411b.js",
+    "static/js/453.8633fd65.chunk.js": "/personal-page/static/js/453.8633fd65.chunk.js",
+    "static/media/avatar_jorge.jpg": "/personal-page/static/media/avatar_jorge.52290cf83caa374e7712.jpg",
+    "static/media/apresentacao_paginajpeg.jpg": "/personal-page/static/media/apresentacao_paginajpeg.a7c9b575014f7022b35e.jpg",
+    "index.html": "/personal-page/index.html",
+    "main.20f25b11.css.map": "/personal-page/static/css/main.20f25b11.css.map",
+    "main.8f61411b.js.map": "/personal-page/static/js/main.8f61411b.js.map",
+    "453.8633fd65.chunk.js.map": "/personal-page/static/js/453.8633fd65.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.20f25b11.css",
-    "static/js/main.b597fc72.js"
+    "static/js/main.8f61411b.js"
   ]
 }
