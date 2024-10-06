@@ -8,20 +8,36 @@ const MainPage = () => {
   return (
     <div className="page">
       <div className="page-article">
-        <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            width: { sx: "100%", md: "80%" },
+          }}
+        >
           <Box sx={{ width: "35%" }}>
-            {" "}
-            <img
-              src={imagePortfolio} // Replace with your image URL
-              alt="Description of the image"
-              style={{
-                maxWidth: "70%", // Responsive image
+            <Box
+              sx={{
+                maxWidth: {
+                  xs: "100%", // Full width on small screens
+                  md: "70%", // 70% width on medium screens and above
+                },
                 borderRadius: "var(--border-radius)",
                 boxShadow: "0 4px 14px rgba(0, 0, 0, 0.1)",
+                overflow: "hidden", // Ensures the border radius applies to the image
               }}
-            />
+            >
+              <img
+                src={imagePortfolio} // Replace with your image URL
+                alt="Description of the image"
+                style={{
+                  width: "100%", // Ensures the image takes the full width of the container
+                  height: "auto", // Maintains the aspect ratio
+                }}
+              />
+            </Box>
           </Box>
-          <Box sx={{ marginLeft: 4 }}>
+          <Box sx={{ marginLeft: { xs: "2px", md: 4 } }}>
             <article>
               <header>
                 <h1 style={{ fontWeight: "bold" }}>

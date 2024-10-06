@@ -37,7 +37,7 @@ export default function MenuIntroduction() {
       >
         <MenuItem
           className="CustomMenuIntroduction--item"
-          onClick={createHandleMenuClick("/mainPage")}
+          onClick={createHandleMenuClick("/personal-page")}
         >
           Main Page
         </MenuItem>

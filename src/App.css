@@ -48,15 +48,13 @@
 }
 
 .page {
-  display: flex;
-  justify-content: center;
   margin-top: 100px;
+  height: calc(93vh - 100px);
+  position: fixed;
+  overflow: auto;
 }
 
 .page-article {
-  width: 80%;
-  /* text-align: center; */
-  /* position: fixed; */
   margin-bottom: 15px;
   padding: 10px;
   border-radius: var(--border-radius);
@@ -64,7 +62,7 @@
   background-color: rgba(255, 255, 255, 0.57);
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.1),
-    /* Shadow below */ 0 6px 40px rgba(0, 0, 0, 0.1); /* Larger soft shadow */
+    /* Shadow below */ 0 6px 5px rgba(0, 0, 0, 0.1); /* Larger soft shadow */
 }
 
 .footer {
