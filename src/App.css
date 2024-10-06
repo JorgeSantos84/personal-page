@@ -4,11 +4,13 @@
   --bk-color: #121212;
   --font-color: #dae2ed;
   --border-radius: 12px;
+  --icon-theme-color: #121212;
 }
 
 [data-theme="dark"] {
   --bg-color: #121212; /* Background color for dark theme */
   --border-color: white;
+  --icon-theme-color: white;
 }
 
 .App {
@@ -48,9 +50,9 @@
 }
 
 .page {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   height: calc(93vh - 100px);
-  position: fixed;
+  position: sticky;
   overflow: auto;
 }
 
@@ -94,4 +96,13 @@
 
 p {
   margin-bottom: 0.5em !important;
+}
+
+.ReactFlagsSelect-module_selectBtn__19wW7 {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.icons-theme {
+  color: var(--icon-theme-color);
 }
