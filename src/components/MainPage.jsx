@@ -15,7 +15,7 @@ const MainPage = () => {
               src={imagePortfolio} // Replace with your image URL
               alt="Description of the image"
               style={{
-                maxWidth: "100%", // Responsive image
+                maxWidth: "70%", // Responsive image
                 borderRadius: "var(--border-radius)",
                 boxShadow: "0 4px 14px rgba(0, 0, 0, 0.1)",
               }}

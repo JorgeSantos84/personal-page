@@ -79,7 +79,7 @@
 
 .footer > .MuiBox-root {
   position: absolute;
-  right: 15px; /* Adjust this value to position the icon as needed */
+  right: 35px; /* Adjust this value to position the icon as needed */
 }
 
 .gradient-text {

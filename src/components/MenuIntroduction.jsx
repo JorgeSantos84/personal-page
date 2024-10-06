@@ -33,7 +33,7 @@ export default function MenuIntroduction() {
         slotProps={{
           listbox: { className: "CustomMenuIntroduction--listbox" },
         }}
-        style={{ left: "10px" }}
+        // style={{ left: "10px" }}
       >
         <MenuItem
           className="CustomMenuIntroduction--item"
