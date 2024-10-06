@@ -39,7 +39,7 @@ function App() {
           }}
         >
           <Routes>
-            <Route path="/mainPage" element={<MainPage />} />
+            <Route path="/personal-page" element={<MainPage />} />
             <Route path="/notFoundPage" element={<NotFoundPage />} />
           </Routes>{" "}
         </Box>
