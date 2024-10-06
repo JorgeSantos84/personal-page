@@ -1,10 +1,13 @@
 // import logo from './logo.svg';
-import { useEffect } from "react";
 import "./App.css";
 import Comentario from "./components/Comentario.jsx";
-import ContadorExercicio from "./components/ContadorExercicio";
 import todosComentarios from "./constants/TodosComentarios.js";
 import Header from "./components/Header.jsx";
+import MainPage from "./components/MainPage.jsx";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NotFoundPage from "./components/NotFoundPage.jsx";
+import { Box } from "@mui/material";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   const apresentarComentarios = () => {
@@ -19,26 +22,30 @@ function App() {
     ));
   };
 
-  // useEffect(() => {
-  //   fetch("http://jsonplaceholder.typicode.com/posts")
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // }, []);
-
   return (
-    <div className="App">
-      {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a> */}
-      <Header></Header>
-      <div style={{ justifyContent: "center", display: "flex" }}>
-        {"em construcao"}
+    <Router>
+      <div
+        className="App fixed-background"
+        style={{
+          flexDirection: "column",
+          display: "flex",
+          minHeight: "100vh",
+        }}
+      >
+        <Header></Header>
+        <Box
+          style={{
+            flex: 1,
+          }}
+        >
+          <Routes>
+            <Route path="/mainPage" element={<MainPage />} />
+            <Route path="/notFoundPage" element={<NotFoundPage />} />
+          </Routes>{" "}
+        </Box>
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 

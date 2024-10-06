@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//here i can customize my theme
-const theme = createTheme();
+//apenas um teste
+
+// const darkTheme = { palette: { mode: "dark" } };
+// const themes = createTheme();
+// console.log(themes);
+
+// //here i can customize my theme
+// const theme = createTheme(darkTheme);
 
 root.render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider>
     <React.StrictMode>
       <App />
     </React.StrictMode>

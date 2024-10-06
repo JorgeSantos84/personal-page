@@ -1,10 +1,20 @@
-/* .App {
-  text-align: center;
-} */
+:root {
+  --bg-color: #ededed;
+  --border-color: #919090;
+  --bk-color: #121212;
+  --font-color: #dae2ed;
+  --border-radius: 12px;
+}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[data-theme="dark"] {
+  --bg-color: #121212; /* Background color for dark theme */
+  --border-color: white;
+}
+
+.App {
+  /* background-color: #333333; */
+  background-color: var(--bg-color);
+  /* min-height: 100em; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,11 +25,11 @@
 
 .App-header {
   /* background-color: #282c34; */
-  min-height: 100vh;
-  display: flex;
+  /* min-height: 100vh; */
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   /* color: white; */
 }
@@ -37,6 +47,53 @@
   }
 }
 
-.divCenter {
+.page {
+  display: flex;
   justify-content: center;
+  margin-top: 100px;
+}
+
+.page-article {
+  width: 80%;
+  /* text-align: center; */
+  /* position: fixed; */
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  border: 2px solid #ede8e8;
+  background-color: rgba(255, 255, 255, 0.57);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    /* Shadow below */ 0 6px 40px rgba(0, 0, 0, 0.1); /* Larger soft shadow */
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 35px;
+  background-color: var(--bk-color);
+  color: var(--font-color);
+}
+
+.footer > .MuiBox-root {
+  position: absolute;
+  right: 15px; /* Adjust this value to position the icon as needed */
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    90deg,
+    #ff7f7f,
+    #ffcccc
+  ); /* Pastel red gradient */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Makes the text color transparent so the gradient shows */
+  font-weight: bold; /* Optional: make the text bold */
+}
+
+p {
+  margin-bottom: 0.5em !important;
 }
