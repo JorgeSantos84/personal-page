@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -6,17 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ThemeProvider } from "./context/ThemeContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// Safely get the root element
+const rootElement = document.getElementById("root");
 
-//apenas um teste
+if (!rootElement) {
+  throw new Error("Root element not found");
+}
 
-// const darkTheme = { palette: { mode: "dark" } };
-// const themes = createTheme();
-// console.log(themes);
+// Create root using the found element
+const root = ReactDOM.createRoot(rootElement);
 
-// //here i can customize my theme
-// const theme = createTheme(darkTheme);
-
+// Render the application
 root.render(
   <ThemeProvider>
     <React.StrictMode>

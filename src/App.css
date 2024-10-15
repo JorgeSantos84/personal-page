@@ -2,21 +2,32 @@
   --bg-color: #ededed;
   --border-color: #919090;
   --bk-color: #121212;
-  --font-color: #dae2ed;
+  --font-color: black;
   --border-radius: 12px;
   --icon-theme-color: #121212;
+  --drawer-background-color: #ededed;
+  --body-bk-color: white;
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212; /* Background color for dark theme */
+  --bg-color: #262626; /* Background color for dark theme */
   --border-color: white;
   --icon-theme-color: white;
+  --font-color: white;
+  --drawer-background-color: #262626;
+  --body-bk-color: #5e6461;
 }
 
 .App {
   /* background-color: #333333; */
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   /* min-height: 100em; */
+  /* cor interessante 5e6461 */
+  background: linear-gradient(
+    135deg,
+    var(--bk-color) 50%,
+    var(--body-bk-color) 50%
+  );
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -50,10 +61,12 @@
 }
 
 .page {
-  /* margin-top: 100px; */
-  height: calc(93vh - 100px);
-  position: sticky;
-  overflow: auto;
+  /* height: calc(93vh - 100px); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 65px;
 }
 
 .page-article {
@@ -67,6 +80,18 @@
     /* Shadow below */ 0 6px 5px rgba(0, 0, 0, 0.1); /* Larger soft shadow */
 }
 
+.presentation-article {
+  color: var(--font-color);
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  /* background-color: rgba(255, 255, 255, 0.57); */
+  background-color: var(--body-bk-color);
+  padding: 10px;
+  /* box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 6px 5px rgba(0, 0, 0, 0.1); */
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -74,7 +99,8 @@
   text-align: center;
   height: 35px;
   background-color: var(--bk-color);
-  color: var(--font-color);
+  color: white;
+  border-top: 4px solid var(--body-bk-color);
 }
 
 .footer > .MuiBox-root {
@@ -104,5 +130,19 @@ p {
 }
 
 .icons-theme {
-  color: var(--icon-theme-color);
+  color: white;
+}
+
+.drawer-list {
+  background-color: var(--drawer-background-color);
+  color: var(--font-color);
+  flex: 1;
+}
+
+.item-drawer {
+  border-bottom: 2px dashed var(--font-color);
+}
+
+.flagselect {
+  color: var(--bk-color);
 }

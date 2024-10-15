@@ -1,27 +1,14 @@
 // import logo from './logo.svg';
+import React from "react";
 import "./App.css";
-import Comentario from "./components/Comentario.jsx";
-import todosComentarios from "./constants/TodosComentarios.js";
-import Header from "./components/Header.jsx";
-import MainPage from "./components/MainPage.jsx";
+import Header from "./components/Header";
+import MainPage from "./components/MainPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import NotFoundPage from "./components/NotFoundPage.jsx";
+import NotFoundPage from "./components/NotFoundPage";
 import { Box } from "@mui/material";
-import Footer from "./components/Footer.jsx";
+import Footer from "./components/Footer";
 
 function App() {
-  const apresentarComentarios = () => {
-    return todosComentarios.map((coment) => (
-      <Comentario
-        key={coment.id} // Add a unique key prop for each element
-        user={coment.userId} // Adjust if you need to convert to string
-        userId={coment.userId}
-        titulo={coment.title}
-        corpo={coment.body}
-      />
-    ));
-  };
-
   return (
     <Router>
       <div

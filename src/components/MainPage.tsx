@@ -1,13 +1,17 @@
-import CoffeeIcon from "@mui/icons-material/Coffee";
-import HomeIcon from "@mui/icons-material/Home";
-import WorkIcon from "@mui/icons-material/Work";
 import { Box } from "@mui/material";
 import imagePortfolio from "../assets/apresentacao_paginajpeg.jpg";
+import ExtractIconsListMessage from "./extractInfoFiles/ExtractIconsListMessage";
+import CenterBox from "./CenterBox";
+import { useTheme } from "../context/ThemeContext";
+import PresentationMainPage from "../constants/PresentationMainPage";
 
 const MainPage = () => {
+  const { language } = useTheme();
+  const page = PresentationMainPage.get(language);
+
   return (
     <div className="page">
-      <div className="page-article">
+      <CenterBox>
         <Box
           sx={{
             display: "flex",
@@ -37,32 +41,15 @@ const MainPage = () => {
               />
             </Box>
           </Box>
-          <Box sx={{ marginLeft: { xs: "2px", md: 4 } }}>
-            <article>
-              <header>
-                <h1 style={{ fontWeight: "bold" }}>
-                  Olá, sou o <span className="gradient-text">Jorge</span>{" "}
-                </h1>
-                <p style={{ fontWeight: "bold" }}>
-                  sou um Full Stack Web Developer.
-                </p>
-              </header>
-              <section>
-                <p>
-                  <CoffeeIcon sx={{ color: "#db5856" }} /> Movimentado a café
-                </p>
-                <p>
-                  <HomeIcon sx={{ color: "#9cd69f" }} /> Residente em Braga
-                </p>
-                <p>
-                  <WorkIcon sx={{ color: "#4e79e6" }} /> ItSector - Java
-                  Developer
-                </p>
-              </section>
-            </article>
-          </Box>
+          {page && (
+            <ExtractIconsListMessage
+              presentation={page}
+              iconsList={page.iconsList}
+            />
+          )}
         </Box>
-      </div>
+      </CenterBox>
+      <CenterBox>{page?.fullDescription}</CenterBox>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Tooltip } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
@@ -6,7 +7,7 @@ const Footer = () => {
   const presentYear = new Date().getFullYear();
   const linkedInLink = "https://www.linkedin.com/in/jorge-mosantos/";
 
-  const openInNewTab = (url) => {
+  const openInNewTab = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
