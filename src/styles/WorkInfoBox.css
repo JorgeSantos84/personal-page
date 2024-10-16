@@ -1,0 +1,5 @@
+.work-info-title {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity));
+  margin-bottom: 10px;
+}

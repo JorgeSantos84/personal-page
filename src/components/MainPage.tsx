@@ -49,7 +49,15 @@ const MainPage = () => {
           )}
         </Box>
       </CenterBox>
-      <CenterBox>{page?.fullDescription}</CenterBox>
+      <CenterBox>
+        {page?.fullDescription?.split(".").map((lineText) => {
+          return (
+            <>
+              <p>{lineText} .</p>
+            </>
+          );
+        })}
+      </CenterBox>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFoundPage from "./components/NotFoundPage";
 import { Box } from "@mui/material";
 import Footer from "./components/Footer";
+import WorkInfoPage from "./components/WorkInfoPage";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         >
           <Routes>
             <Route path="/personal-page" element={<MainPage />} />
-            <Route path="/notFoundPage" element={<NotFoundPage />} />
+            <Route path="/notFoundPage" element={<WorkInfoPage />} />
           </Routes>{" "}
         </Box>
         <Footer />

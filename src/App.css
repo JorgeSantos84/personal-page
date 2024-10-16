@@ -1,12 +1,14 @@
 :root {
   --bg-color: #ededed;
   --border-color: #919090;
-  --bk-color: #121212;
+  /* --bk-color: #121212; */
+  --bk-color: #121d3e;
   --font-color: black;
   --border-radius: 12px;
   --icon-theme-color: #121212;
   --drawer-background-color: #ededed;
-  --body-bk-color: white;
+  --body-bk-color: rgb(42 55 91);
+  --header-bk-color: rgba(18, 29, 62, 0.8);
 }
 
 [data-theme="dark"] {
@@ -15,7 +17,9 @@
   --icon-theme-color: white;
   --font-color: white;
   --drawer-background-color: #262626;
-  --body-bk-color: #5e6461;
+  --body-bk-color: #1c1c1c;
+  --bk-color: black;
+  --header-bk-color: rgba(18, 18, 18, 0.8);
 }
 
 .App {
@@ -25,9 +29,11 @@
   /* cor interessante 5e6461 */
   background: linear-gradient(
     135deg,
-    var(--bk-color) 50%,
-    var(--body-bk-color) 50%
+    var(--bk-color) 80%,
+    var(--body-bk-color) 20%
   );
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -81,12 +87,13 @@
 }
 
 .presentation-article {
-  color: var(--font-color);
   margin-bottom: 20px;
   border-radius: var(--border-radius);
   /* background-color: rgba(255, 255, 255, 0.57); */
   background-color: var(--body-bk-color);
   padding: 10px;
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
   /* box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.1),
     0 6px 5px rgba(0, 0, 0, 0.1); */
@@ -99,7 +106,8 @@
   text-align: center;
   height: 35px;
   background-color: var(--bk-color);
-  color: white;
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
   border-top: 4px solid var(--body-bk-color);
 }
 
