@@ -8,7 +8,7 @@
   --icon-theme-color: #121212;
   --drawer-background-color: #ededed;
   --body-bk-color: rgb(42 55 91);
-  --header-bk-color: rgba(18, 29, 62, 0.8);
+  --header-bk-color: rgba(18, 29, 62, 0.9);
 }
 
 [data-theme="dark"] {
@@ -19,7 +19,7 @@
   --drawer-background-color: #262626;
   --body-bk-color: #1c1c1c;
   --bk-color: black;
-  --header-bk-color: rgba(18, 18, 18, 0.8);
+  --header-bk-color: rgba(18, 18, 18, 0.9);
 }
 
 .App {

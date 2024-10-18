@@ -28,7 +28,7 @@ function App() {
         >
           <Routes>
             <Route path="/personal-page" element={<MainPage />} />
-            <Route path="/notFoundPage" element={<WorkInfoPage />} />
+            <Route path="/work-experience" element={<WorkInfoPage />} />
           </Routes>{" "}
         </Box>
         <Footer />

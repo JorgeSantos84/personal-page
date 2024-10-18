@@ -1,5 +1,16 @@
-.work-info-title {
+.work-info-title,
+.work-company-title {
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));
   margin-bottom: 10px;
+}
+
+@media (max-width: 932px) {
+  .work-info-title {
+    font-size: 16px;
+  }
+
+  .work-company-title {
+    font-size: 14px;
+  }
 }

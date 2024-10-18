@@ -117,7 +117,7 @@ const Header = () => {
         height: "65px",
         width: "100%",
         position: "fixed",
-        backgroundColor: "var(header-bk-color)",
+        backgroundColor: "var(--header-bk-color)",
         zIndex: 1,
       }}
     >

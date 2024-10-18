@@ -1,8 +1,38 @@
 import { WorkDetails } from "../types/workDetails";
+import fnacLogo from "../assets/workLogos/fnacLogo.png";
+import itSectorLogo from "../assets/workLogos/itsectorLogo.png";
+import casoLogo from "../assets/workLogos/casoLogo.png";
+import { on } from "events";
+import { platform } from "os";
+import { features } from "process";
 
 const workInformationEN: WorkDetails[] = [
   {
-    title: "Java Developer - Web Application at CASO LDA",
+    title: "Java Developer - Web Application",
+    company: "ITSector",
+    companyLogo: itSectorLogo,
+    beginYear: "2024-07",
+    endYear: "Present Date",
+    details: [
+      "Web Application Developer",
+      "Languages: Java/JavaScript (Vanilla and JQuery)/SQL",
+      "Frameworks: Struts 2.5, Spring (including Spring JPA and Spring REST)",
+      "HTML/CSS/BootStrap/Flexbox",
+    ],
+    fullInfo: ["A PREENCHER MAIS TARDE"],
+    technologies: [
+      "Java 17",
+      "SpringBoot",
+      "Lombok",
+      "Azure",
+      "Git",
+      "Swagger",
+    ],
+  },
+  {
+    title: "Full Stack Web Developer - Web Application",
+    company: "CASO LDA",
+    companyLogo: casoLogo,
     beginYear: "2023-03",
     endYear: "2024-07",
     details: [
@@ -11,9 +41,23 @@ const workInformationEN: WorkDetails[] = [
       "Frameworks: Struts 2.5, Spring (including Spring JPA and Spring REST)",
       "HTML/CSS/BootStrap/Flexbox",
     ],
+    technologies: [
+      "Java 8",
+      "JavaScript",
+      "JQuery",
+      "SpringBoot",
+      "Struts",
+      "JPA",
+      "Hibernate",
+      "SQL",
+      "HTML",
+      "CSS",
+    ],
   },
   {
-    title: "Web Developer/Content at Sublimeboutique",
+    title: "Web Developer/Content",
+    company: "Sublimeboutique",
+    companyLogo: "no_logo",
     beginYear: "2021",
     endYear: "2023",
     details: [
@@ -21,9 +65,18 @@ const workInformationEN: WorkDetails[] = [
       "Managed the front and back end of these websites for two years",
       "Worked with: Javascript/HTML/CSS and Java 8",
     ],
+    fullInfo: [
+      "Spearheaded the development of a ground-up web application tailored for e-commerce, with initial focus on frontend development to craft a responsive user interface optimized for mobile devices. I then transitioned to backend development, contributing to the creation of robust functionalities",
+      "Worked on the adaptation of a core application framework for two distinct e-commerce websites, customizing frontend components and functionalities to meet unique requirements of each platform",
+      "Provided ongoing support over a two-year period, resolving bugs and implementing new features in alignment with client specifications and evolving market trends",
+      "Leveraged Java and Spring framework for backend development, ensuring scalability, performance, and security of the web applications. Employed JavaScript, Bootstrap, HTML, and CSS for frontend development, maintaining high standards of design and user experience",
+    ],
+    technologies: ["Java 8", "JavaScript", "JQuery", "Spring", "HTMl", "CSS"],
   },
   {
-    title: "IT Specialist at Fnac Portugal",
+    title: "IT Specialist",
+    company: "Fnac Portugal",
+    companyLogo: fnacLogo,
     beginYear: "2009",
     endYear: "2023",
     details: [
@@ -32,12 +85,37 @@ const workInformationEN: WorkDetails[] = [
       "Management of team in the sales and services process",
       "Content Creator for the Fnac Expert platform (from 2017 to 2018)",
     ],
+    fullInfo: ["A PREENCHER MAIS TARDE"],
   },
 ];
 
 const workInformationPT: WorkDetails[] = [
   {
-    title: "Desenvolvimento de Aplicações Web na CASO LDA",
+    title: "Java Developer - Web Application",
+    company: "ITSector",
+    companyLogo: itSectorLogo,
+    beginYear: "2024-07",
+    endYear: "Presente Data",
+    details: [
+      "Web Application Desenvolvedor",
+      "Linguagens: Java/JavaScript/SQL",
+      "Frameworks: Struts 2.5, Spring (incluindo Spring JPA and Spring REST)",
+      "HTML/CSS/BootStrap/Flexbox",
+    ],
+    fullInfo: ["A PREENCHER MAIS TARDE"],
+    technologies: [
+      "Java 17",
+      "SpringBoot",
+      "Lombok",
+      "Azure",
+      "Git",
+      "Swagger",
+    ],
+  },
+  {
+    title: "Desenvolvimento de Aplicações Web Full Stack",
+    company: "CASO LDA",
+    companyLogo: casoLogo,
     beginYear: "2023-03",
     endYear: "2024-07",
     details: [
@@ -46,9 +124,30 @@ const workInformationPT: WorkDetails[] = [
       "Frameworks: Struts 2.5, Spring (incluindo Spring JPA and Spring REST)",
       "HTML/CSS/BootStrap/Flexbox",
     ],
+    fullInfo: [
+      "Desenvolvi microserviços utilizando Java, Spring e MySQL, incluindo APIs RESTful para processamento de pagamentos (por exemplo, MbWay, Multibanco, cartão de crédito)",
+      "Projetei e implementei uma aplicação web de balcão virtual, abrangendo tanto o desenvolvimento frontend (JavaScript, Bootstrap, HTML, CSS) quanto o backend",
+      "Contribuí para o desenvolvimento inicial de uma aplicação web para gerenciamento de faturas digitais assinadas em formato PDF, lidando com o design frontend e as tarefas de backend",
+      "Liderei o desenvolvimento de uma Progressive Web App (PWA) com funcionalidades independentes, garantindo experiências contínuas online e offline utilizando o framework Workbox da Google para gerenciamento de service workers",
+      "Projetei e implementei componentes frontend e backend da PWA, aproveitando o Spring para o desenvolvimento de backend e o Spring Data JPA para acesso e gerenciamento de banco de dados",
+    ],
+    technologies: [
+      "Java 8",
+      "JavaScript",
+      "JQuery",
+      "SpringBoot",
+      "Struts",
+      "JPA",
+      "Hibernate",
+      "SQL",
+      "HTML",
+      "CSS",
+    ],
   },
   {
-    title: "Programador Web/Gestor Conteúdo na Sublimeboutique",
+    title: "Programador Web/Gestor Conteúdo",
+    company: "Sublimeboutique",
+    companyLogo: "no_logo",
     beginYear: "2021",
     endYear: "2023",
     details: [
@@ -56,9 +155,17 @@ const workInformationPT: WorkDetails[] = [
       "Geri o front end e back end desses websites durante 2 anos.",
       "Trabalhei com: Javascript/HTML/CSS, JAVA 8",
     ],
+    fullInfo: [
+      "Encabecei o desenvolvimento de uma aplicação web do zero, personalizada para o comércio eletrônico, com foco inicial no desenvolvimento frontend para criar uma interface de usuário responsiva otimizada para dispositivos móveis. Transitioned seamlessly to backend development, contributing to the creation of robust functionalities",
+      "Forneci suporte contínuo ao longo de um período de dois anos, resolvendo bugs e implementando novos recursos alinhados com as especificações do cliente e as tendências de mercado em constante evolução",
+      "Utilizei Java e o framework Spring para o desenvolvimento backend, garantindo escalabilidade, desempenho e segurança das aplicações web. Empreguei JavaScript, Bootstrap, HTML e CSS para o desenvolvimento frontend, mantendo altos padrões de design e experiência do usuário",
+    ],
+    technologies: ["Java 8", "JavaScript", "JQuery", "Spring", "HTMl", "CSS"],
   },
   {
     title: "Especialista em TI na Fnac Portugal",
+    company: "Fnac Portugal",
+    companyLogo: fnacLogo,
     beginYear: "2009",
     endYear: "2023",
     details: [
@@ -67,6 +174,7 @@ const workInformationPT: WorkDetails[] = [
       "Gestão equipa processo vendas de serviços",
       "Criador Conteúdos plataforma Fnac Expert (de 2017 a 2018)",
     ],
+    fullInfo: ["A PREENCHER MAIS TARDE"],
   },
 ];
 

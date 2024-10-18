@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import imagePortfolio from "../assets/apresentacao_paginajpeg.jpg";
 import ExtractIconsListMessage from "./extractInfoFiles/ExtractIconsListMessage";
-import CenterBox from "./CenterBox";
+import CenterBox from "./smallComponents/CenterBox";
 import { useTheme } from "../context/ThemeContext";
 import PresentationMainPage from "../constants/PresentationMainPage";
 
