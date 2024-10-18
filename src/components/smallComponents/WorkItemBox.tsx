@@ -35,12 +35,32 @@ const WorkItemBox: React.FC<WorkItemBoxProps> = ({
     <>
       {workItensTranslated ? (
         <Grid2 container>
-          <Grid2 size={4}>
-            {workItensTranslated.beginYear} <br />
-            <ArrowRightAltIcon sx={{ transform: "rotate(90deg)" }} /> <br />
+          <Grid2
+            size={{
+              xs: 12,
+              md: 4,
+            }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              "@media(max-width: 500px)": {
+                marginBottom: "10px",
+                flexDirection: "row",
+              },
+            }}
+          >
+            {workItensTranslated.beginYear}
+            <ArrowRightAltIcon
+              sx={{
+                transform: "rotate(90deg)",
+                "@media(max-width: 500px)": {
+                  transform: "rotate(0deg)",
+                },
+              }}
+            />
             {workItensTranslated.endYear}
           </Grid2>
-          <Grid2 size={8}>
+          <Grid2 size={{ md: 8 }}>
             <h2>
               <Box className="work-info-title">{workItensTranslated.title}</Box>
             </h2>
