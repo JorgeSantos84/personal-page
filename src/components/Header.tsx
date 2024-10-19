@@ -126,7 +126,7 @@ const Header = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "white",
+          backgroundColor: "var(--font-color-main)",
           height: 55,
           width: 55,
           borderRadius: "50%",
