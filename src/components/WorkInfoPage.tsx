@@ -7,6 +7,7 @@ import WorkDetailsInformation from "../constants/WorkDetailsInformation";
 import { WorkDetails } from "../types/workDetails";
 
 import React, { useState } from "react";
+import Page from "./smallComponents/Page";
 
 const WorkInfoPage: React.FC = () => {
   const { language } = useTheme();
@@ -23,7 +24,7 @@ const WorkInfoPage: React.FC = () => {
   };
 
   return (
-    <Box className="page">
+    <Page>
       {workItensListTranslated.map((item, index) => (
         <CenterBox key={index}>
           <WorkItemBox
@@ -34,7 +35,7 @@ const WorkInfoPage: React.FC = () => {
           />
         </CenterBox>
       ))}
-    </Box>
+    </Page>
   );
 };
 

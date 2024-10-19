@@ -1,12 +1,14 @@
 :root {
+  --tw-text-opacity: 1;
   --bg-color: #ededed;
   --border-color: #919090;
+  --font-color-main: rgb(148 163 184 / var(--tw-text-opacity));
   /* --bk-color: #121212; */
   --bk-color: #121d3e;
-  --font-color: black;
+  /* --font-color: black; */
   --border-radius: 12px;
   --icon-theme-color: #121212;
-  --drawer-background-color: #ededed;
+  --drawer-background-color: var(--body-bk-color);
   --body-bk-color: rgb(42 55 91);
   --header-bk-color: rgba(18, 29, 62, 0.9);
 }
@@ -15,7 +17,7 @@
   --bg-color: #262626; /* Background color for dark theme */
   --border-color: white;
   --icon-theme-color: white;
-  --font-color: white;
+  /* --font-color: white; */
   --drawer-background-color: #262626;
   --body-bk-color: #1c1c1c;
   --bk-color: black;
@@ -32,7 +34,6 @@
     var(--bk-color) 80%,
     var(--body-bk-color) 20%
   );
-  --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
@@ -92,7 +93,6 @@
   /* background-color: rgba(255, 255, 255, 0.57); */
   background-color: var(--body-bk-color);
   padding: 10px;
-  --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
   /* box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.1),
@@ -106,7 +106,6 @@
   text-align: center;
   height: 35px;
   background-color: var(--bk-color);
-  --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
   border-top: 4px solid var(--body-bk-color);
 }
@@ -138,17 +137,17 @@ p {
 }
 
 .icons-theme {
-  color: white;
+  color: var(--font-color-main);
 }
 
 .drawer-list {
   background-color: var(--drawer-background-color);
-  color: var(--font-color);
+  color: var(--font-color-main);
   flex: 1;
 }
 
 .item-drawer {
-  border-bottom: 2px dashed var(--font-color);
+  border-bottom: 2px dashed var(--font-color-main);
 }
 
 .flagselect {

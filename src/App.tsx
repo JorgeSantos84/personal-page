@@ -8,6 +8,7 @@ import NotFoundPage from "./components/NotFoundPage";
 import { Box } from "@mui/material";
 import Footer from "./components/Footer";
 import WorkInfoPage from "./components/WorkInfoPage";
+import ContactsPage from "./components/ContactsPage";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
           <Routes>
             <Route path="/personal-page" element={<MainPage />} />
             <Route path="/work-experience" element={<WorkInfoPage />} />
-          </Routes>{" "}
+            <Route path="/contacts" element={<ContactsPage />} />
+          </Routes>
         </Box>
         <Footer />
       </div>

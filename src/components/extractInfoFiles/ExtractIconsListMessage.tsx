@@ -19,30 +19,25 @@ const ExtractIconsListMessage: React.FC<ExtractIconsListMessageProps> = ({
   presentation,
   iconsList,
 }) => {
-  // const { language } = useTheme();
-  // const page = PresentationMainPage.get(language);
-
-  // const iconsList: IconItem[] = page ? page.iconsList : [];
-
   const iconsMapList: Record<string, React.ReactNode> = {
     HomeIcon: (
       <HomeIcon
         sx={{
-          color: "var(--font-color)",
+          color: "var(--font-color-main)",
         }}
       />
     ),
     CoffeeIcon: (
       <CoffeeIcon
         sx={{
-          color: "var(--font-color)",
+          color: "var(--font-color-main)",
         }}
       />
     ),
     WorkIcon: (
       <WorkIcon
         sx={{
-          color: "var(--font-color)",
+          color: "var(--font-color-main)",
         }}
       />
     ),

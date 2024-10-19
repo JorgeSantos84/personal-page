@@ -4,13 +4,14 @@ import ExtractIconsListMessage from "./extractInfoFiles/ExtractIconsListMessage"
 import CenterBox from "./smallComponents/CenterBox";
 import { useTheme } from "../context/ThemeContext";
 import PresentationMainPage from "../constants/PresentationMainPage";
+import Page from "./smallComponents/Page";
 
 const MainPage = () => {
   const { language } = useTheme();
   const page = PresentationMainPage.get(language);
 
   return (
-    <div className="page">
+    <Page>
       <CenterBox>
         <Box
           sx={{
@@ -58,7 +59,7 @@ const MainPage = () => {
           );
         })}
       </CenterBox>
-    </div>
+    </Page>
   );
 };
 
