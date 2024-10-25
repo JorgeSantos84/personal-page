@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 import WorkInfoPage from "./components/WorkInfoPage";
 import ContactsPage from "./components/ContactsPage";
 import TechSkillsPage from "./components/TechSkillsPage";
+import SnakePage from "./components/SnakePage";
+import EducationPage from "./components/EducationPage";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/work-experience" element={<WorkInfoPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/tech-skills" element={<TechSkillsPage />} />
+            <Route path="/snake-game" element={<SnakePage />} />
+            <Route path="/education" element={<EducationPage />} />
           </Routes>
         </Box>
         <Footer />

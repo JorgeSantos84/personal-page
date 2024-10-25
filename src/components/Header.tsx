@@ -20,6 +20,7 @@ import { Tooltip } from "@mui/material";
 import MenuLabels from "../constants/MenuLabels";
 import { text } from "stream/consumers";
 import { useNavigate } from "react-router-dom";
+import MainPage from "./MainPage";
 
 const LanguageSelect: React.FC = () => {
   const [selected, setSelected] = React.useState("PT"); // Default to Portugal
@@ -131,7 +132,9 @@ const Header = () => {
           width: 55,
           borderRadius: "50%",
           marginLeft: 2,
+          cursor: "pointer",
         }}
+        onClick={() => navigate("/personal-page")}
       >
         <Avatar
           alt="Jorge Santos"
@@ -149,24 +152,21 @@ const Header = () => {
       >
         <Tooltip title="Mudar Tema" arrow>
           <FormControlLabel
-            control={
-              <Switch checked={auth} onChange={handleChange} defaultChecked />
-            }
+            control={<Switch checked={auth} onChange={handleChange} />}
             label={themeIcon}
           />
         </Tooltip>
         <LanguageSelect></LanguageSelect>
-        <IconButton size="large">
+        <IconButton size="large" onClick={toggleDrawer(true)}>
           <MenuIcon
             fontSize="inherit"
             sx={{ cursor: "pointer" }}
-            onClick={toggleDrawer(true)}
             className="icons-theme"
           />
-          <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-            {DrawerList}
-          </Drawer>
         </IconButton>
+        <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+          {DrawerList}
+        </Drawer>
       </Box>
     </Box>
   );

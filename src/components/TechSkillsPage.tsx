@@ -32,6 +32,8 @@ const TechSkillsPage = () => {
         return "Estrutura/Estilo";
       case TypeTech.TestingTool:
         return "Ferramentas Teste";
+      case TypeTech.Languages:
+        return "Idiomas";
       default:
         return "Invalid Name";
     }
@@ -42,14 +44,18 @@ const TechSkillsPage = () => {
       <CenterBox>
         <h1 style={{ fontWeight: "bold" }}>Tech Skills</h1>
         {language && language === "PT" ? (
-          <p>
-            Aqui apresento as principais tecnologias com que trabalhei nos
-            últimos três anos e com que me sinto mais à vontade atualmente.
-          </p>
+          <>
+            <p>
+              Aqui apresento as principais tecnologias com que trabalhei nos
+              últimos três anos e com que me sinto mais à vontade atualmente.
+            </p>
+            <p>Assim como os idiomas em que sou fluente.</p>
+          </>
         ) : (
           <p>
-            Here i present the main technologies i worked in the last three
-            years and what i feel most comfortable with today.
+            Here i present the main technologies i worked with over the past
+            three years and whith wich i currently feel most comfortable, as
+            well as the languages in wich i am fluent.
           </p>
         )}
       </CenterBox>
@@ -61,18 +67,22 @@ const TechSkillsPage = () => {
           return (
             <CenterBox key={nameTech}>
               <Box sx={{ marginBottom: "15px" }}>
-                <h4>
-                  {language === "PT" ? (
-                    <h4>{techNameFromGBtoPT(nameTech)}</h4>
-                  ) : (
-                    <h4>{nameTech}</h4>
-                  )}
-                </h4>
+                {language === "PT" ? (
+                  <h4>{techNameFromGBtoPT(nameTech)}</h4>
+                ) : (
+                  <h4>{nameTech}</h4>
+                )}
               </Box>
               {techTypeListFromSkills.map((valueSkill, index) => {
                 return (
                   <Grid2 container key={valueSkill.nameTech + index}>
-                    <Grid2 size={{ xs: 5, md: 3 }}>{valueSkill.nameTech}</Grid2>
+                    <Grid2 size={{ xs: 5, md: 3 }}>
+                      {valueSkill.typeTech === TypeTech.Languages
+                        ? language === "PT"
+                          ? valueSkill.nameTech.split("_")[1]
+                          : valueSkill.nameTech.split("_")[0]
+                        : valueSkill.nameTech}
+                    </Grid2>
                     <Grid2 size={{ xs: 7, md: 9 }}>
                       <PillPercentage
                         pillPercentage={valueSkill.percentageSkill}

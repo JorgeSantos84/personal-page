@@ -51,11 +51,11 @@ const MainPage = () => {
         </Box>
       </CenterBox>
       <CenterBox>
-        {page?.fullDescription?.split(".").map((lineText) => {
+        {page?.fullDescription?.split(".").map((lineText, index) => {
           return (
-            <>
+            <Box key={index}>
               <p>{lineText} .</p>
-            </>
+            </Box>
           );
         })}
       </CenterBox>

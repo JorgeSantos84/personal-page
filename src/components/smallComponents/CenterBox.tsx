@@ -9,7 +9,7 @@ const CenterBox: React.FC<CenterBoxProps> = ({ children }) => {
   return (
     <Box
       className="presentation-article"
-      sx={{ width: { xs: "100%", md: "80%" } }}
+      sx={{ width: { xs: "100%", sm: "80%", md: "80%" } }}
     >
       {children}
     </Box>

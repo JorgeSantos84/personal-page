@@ -1,17 +1,15 @@
 import CenterBox from "./smallComponents/CenterBox";
-import "../styles/WorkInfoBox.css";
-import WorkItemBox from "./smallComponents/WorkItemBox";
-import { useTheme } from "../context/ThemeContext";
-import WorkDetailsInformation from "../constants/WorkDetailsInformation";
-import { WorkDetails } from "../types/workDetails";
-
-import React, { useState } from "react";
 import Page from "./smallComponents/Page";
+import EducationInformation from "../constants/EducationInformation";
+import { WorkDetails } from "../types/workDetails";
+import { useTheme } from "../context/ThemeContext";
+import WorkItemBox from "./smallComponents/WorkItemBox";
+import { useState } from "react";
 
-const WorkInfoPage: React.FC = () => {
+const EducationPage = () => {
   const { language } = useTheme();
-  const workItensListTranslated: WorkDetails[] =
-    WorkDetailsInformation.get(language) || [];
+  const educationInformationTranslated: WorkDetails[] =
+    EducationInformation.get(language) || [];
 
   const [showDetailsWorkItem, setShowDetailsWorkItem] = useState<number | null>(
     null,
@@ -23,7 +21,7 @@ const WorkInfoPage: React.FC = () => {
 
   return (
     <Page>
-      {workItensListTranslated.map((item, index) => (
+      {educationInformationTranslated.map((item, index) => (
         <CenterBox key={index}>
           <WorkItemBox
             workItensTranslated={item}
@@ -36,5 +34,4 @@ const WorkInfoPage: React.FC = () => {
     </Page>
   );
 };
-
-export default WorkInfoPage;
+export default EducationPage;

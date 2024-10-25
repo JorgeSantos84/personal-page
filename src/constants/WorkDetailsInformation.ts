@@ -2,11 +2,8 @@ import { WorkDetails } from "../types/workDetails";
 import fnacLogo from "../assets/workLogos/fnacLogo.png";
 import itSectorLogo from "../assets/workLogos/itsectorLogo.png";
 import casoLogo from "../assets/workLogos/casoLogo.png";
-import { on } from "events";
-import { platform } from "os";
-import { features } from "process";
 
-const workInformationEN: WorkDetails[] = [
+export const workInformationEN: WorkDetails[] = [
   {
     title: "Java Developer - Web Application",
     company: "ITSector",
@@ -89,7 +86,7 @@ const workInformationEN: WorkDetails[] = [
   },
 ];
 
-const workInformationPT: WorkDetails[] = [
+export const workInformationPT: WorkDetails[] = [
   {
     title: "Java Developer - Web Application",
     company: "ITSector",
@@ -174,7 +171,7 @@ const workInformationPT: WorkDetails[] = [
       "Gestão equipa processo vendas de serviços",
       "Criador Conteúdos plataforma Fnac Expert (de 2017 a 2018)",
     ],
-    fullInfo: ["A PREENCHER MAIS TARDE"],
+    fullInfo: [],
   },
 ];
 

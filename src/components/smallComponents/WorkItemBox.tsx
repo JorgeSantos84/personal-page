@@ -38,12 +38,13 @@ const WorkItemBox: React.FC<WorkItemBoxProps> = ({
           <Grid2
             size={{
               xs: 12,
+              sm: 4,
               md: 4,
             }}
             sx={{
               display: "flex",
               flexDirection: "column",
-              "@media(max-width: 500px)": {
+              "@media(max-width: 599px)": {
                 marginBottom: "10px",
                 flexDirection: "row",
               },
@@ -53,14 +54,14 @@ const WorkItemBox: React.FC<WorkItemBoxProps> = ({
             <ArrowRightAltIcon
               sx={{
                 transform: "rotate(90deg)",
-                "@media(max-width: 500px)": {
+                "@media(max-width: 599px)": {
                   transform: "rotate(0deg)",
                 },
               }}
             />
             {workItensTranslated.endYear}
           </Grid2>
-          <Grid2 size={{ md: 8 }}>
+          <Grid2 size={{ sm: 8, md: 8 }}>
             <h2>
               <Box className="work-info-title">{workItensTranslated.title}</Box>
             </h2>
@@ -107,27 +108,32 @@ const WorkItemBox: React.FC<WorkItemBoxProps> = ({
                 },
               )}
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button
-                size="small"
-                variant="outlined"
-                onClick={() => handleToggle(numberWorkItem)}
-              >
-                Info
-                {itemBoxNumberShowDetails === numberWorkItem ? (
-                  <ExpandLessIcon />
-                ) : (
-                  <ExpandMoreIcon />
-                )}
-              </Button>
-            </Box>
+            {workItensTranslated.fullInfo &&
+              workItensTranslated.fullInfo.length > 0 && (
+                <>
+                  <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleToggle(numberWorkItem)}
+                    >
+                      Info
+                      {itemBoxNumberShowDetails === numberWorkItem ? (
+                        <ExpandLessIcon />
+                      ) : (
+                        <ExpandMoreIcon />
+                      )}
+                    </Button>
+                  </Box>
 
-            {itemBoxNumberShowDetails === numberWorkItem &&
-              workItensTranslated.fullInfo &&
-              workItensTranslated.fullInfo.map(
-                (detail: string, index: number) => {
-                  return <WorkDetail detail={detail} key={index} />;
-                },
+                  {itemBoxNumberShowDetails === numberWorkItem &&
+                    workItensTranslated.fullInfo &&
+                    workItensTranslated.fullInfo.map(
+                      (detail: string, index: number) => {
+                        return <WorkDetail detail={detail} key={index} />;
+                      },
+                    )}
+                </>
               )}
           </Grid2>
         </Grid2>

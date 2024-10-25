@@ -8,6 +8,7 @@ export enum TypeTech {
   ProjectManagement = "Project Management",
   Library = "Library",
   Framework = "Framework",
+  Languages = "Languages",
 }
 
 export interface TechSkillsInfoProps {
@@ -106,6 +107,16 @@ const TechSkillsInfo: TechSkillsInfoProps[] = [
     typeTech: TypeTech.BuildTool,
     nameTech: "NPM",
     percentageSkill: 60,
+  },
+  {
+    typeTech: TypeTech.Languages,
+    nameTech: "Portuguese _ Português",
+    percentageSkill: 100,
+  },
+  {
+    typeTech: TypeTech.Languages,
+    nameTech: "English _ Inglês",
+    percentageSkill: 90,
   },
 ];
 

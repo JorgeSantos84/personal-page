@@ -29,11 +29,12 @@
   /* background-color: var(--bg-color); */
   /* min-height: 100em; */
   /* cor interessante 5e6461 */
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     var(--bk-color) 80%,
     var(--body-bk-color) 20%
-  );
+  ); */
+  background: var(--bk-color);
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
