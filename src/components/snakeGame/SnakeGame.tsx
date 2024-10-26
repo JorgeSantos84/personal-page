@@ -1,14 +1,29 @@
-import React, { useRef, useEffect, useMemo, useState } from "react";
+import React, { useRef, useEffect, useMemo, useState, FC } from "react";
 import { Box, Button } from "@mui/material";
 import { env } from "process";
 import { log } from "console";
+import ArrowCircleDownOutlinedIcon from "@mui/icons-material/ArrowCircleDownOutlined";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import ArrowCircleUpOutlinedIcon from "@mui/icons-material/ArrowCircleUpOutlined";
 
 interface SnakePosition {
   snakeMember: string;
   direction: string;
   snakeX: number;
   snakeY: number;
+  newDirection?: NewDirection[];
 }
+
+interface SnakeGameProps {
+  gameOver?: (data: boolean) => void;
+}
+
+export type NewDirection = {
+  direction: string;
+  snakeX: number;
+  snakeY: number;
+};
 
 type SnakeTurnedPosition = {
   x: number;
@@ -17,8 +32,8 @@ type SnakeTurnedPosition = {
 };
 
 // Board size and configuration
-const blockSize = 25;
-const rows = 20;
+export const blockSize = 15;
+const rows = 30;
 const cols = 20;
 const boardWidth = cols * blockSize;
 const boardHeight = rows * blockSize;
@@ -47,7 +62,13 @@ const defaultSnakeElementsPosition: SnakePosition[] = [
   },
 ];
 
-const Canvas = () => {
+const placeFood = () => {
+  const foodX = Math.floor(Math.random() * cols) * blockSize;
+  const foodY = Math.floor(Math.random() * rows) * blockSize;
+  return { foodX, foodY };
+};
+
+const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [elementsSnake, setElementsSnake] = useState<SnakePosition[]>(
     defaultSnakeElementsPosition,
@@ -77,8 +98,10 @@ const Canvas = () => {
     y: 0,
     previousDirection: null,
   });
+
+  const firstFoodLocation = placeFood();
   //food position
-  const [foodPosition, setFoodPosition] = useState({ foodX: 0, foodY: 0 });
+  const [foodPosition, setFoodPosition] = useState(firstFoodLocation);
 
   const appleImg = new Image();
   appleImg.src = `${process.env.PUBLIC_URL}/SnakeGameGraphics/apple.png`;
@@ -86,7 +109,7 @@ const Canvas = () => {
   const [activeIntervalId, setActiveIntervalId] =
     useState<NodeJS.Timeout | null>(null);
   const [totalScore, setTotalScore] = useState(0);
-  const [gameStarted, setGameStarted] = useState(false);
+  // const [gameStarted, setGameStarted] = useState(false);
 
   // Memoize the image loading and ensure all images are loaded before drawing
   const images = useMemo(async () => {
@@ -162,15 +185,9 @@ const Canvas = () => {
     };
   }, []); // Empty dependency array means it runs only once
 
-  const placeFood = () => {
-    const foodX = Math.floor(Math.random() * cols) * blockSize;
-    const foodY = Math.floor(Math.random() * rows) * blockSize;
-    return { foodX, foodY };
-  };
-
-  useEffect(() => {
-    setFoodPosition(placeFood());
-  }, []);
+  // useEffect(() => {
+  //   setFoodPosition(placeFood());
+  // }, []);
 
   //add elemento to snake when catches food
   const addElementSnake = (newElement: SnakePosition) => {
@@ -314,8 +331,12 @@ const Canvas = () => {
     }
 
     if (snakeCollide(newElementsSnake)) {
-      images.then(startDefaultCanvasGame);
-      setGameStarted(false);
+      // images.then(startDefaultCanvasGame);
+      // setGameStarted(false);
+      if (gameOver) {
+        gameOver(false);
+      }
+
       return;
     }
 
@@ -362,6 +383,8 @@ const Canvas = () => {
       }
     }
   };
+
+  //position update and register change directions
 
   //draw snake
   const drawSnake = (snake: SnakePosition[], images: any, context: any) => {
@@ -425,8 +448,9 @@ const Canvas = () => {
   };
 
   //set direction
-  const ChangeDirectionSnake = (event: KeyboardEvent) => {
-    switch (event.key) {
+  const ChangeDirectionSnake = (event?: KeyboardEvent, keyTouched?: string) => {
+    const eventKey = event ? event.key : keyTouched;
+    switch (eventKey) {
       case "ArrowUp":
         if (lastDirection.current.y != 25) {
           setVelocityX(0);
@@ -486,31 +510,27 @@ const Canvas = () => {
   };
 
   useEffect(() => {
-    if (gameStarted) {
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key) {
-          ChangeDirectionSnake(event);
-        }
-      };
+    // if (gameStarted) {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key) {
+        ChangeDirectionSnake(event, undefined);
+      }
+    };
 
-      window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
-      return () => {
-        window.removeEventListener("keydown", handleKeyDown);
-      };
-    }
-  }, [gameStarted]);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+    // }
+  }, []);
 
   useEffect(() => {
-    if (gameStarted) {
-      const intervalRender = setInterval(runGame, 1000 / 10); // Increased frequency for smoother updates
-      return () => {
-        clearInterval(intervalRender);
-      };
-    } else {
-      images.then(startDefaultCanvasGame);
-    }
-  }, [gameStarted, elementsSnake]); // Run this effect when images promise resolves
+    const intervalRender = setInterval(runGame, 1000 / 10); // Increased frequency for smoother updates
+    return () => {
+      clearInterval(intervalRender);
+    };
+  }, [elementsSnake]); // Run this effect when images promise resolves
 
   return (
     <>
@@ -524,11 +544,56 @@ const Canvas = () => {
           height={boardHeight}
         ></canvas>
       </Box>
-      <Button variant="outlined" onClick={() => setGameStarted(true)}>
-        Start
-      </Button>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Button
+          sx={{ padding: 0, position: "relative", top: 20 }}
+          onClick={() => {
+            ChangeDirectionSnake(undefined, "ArrowUp");
+          }}
+        >
+          <ArrowCircleUpOutlinedIcon sx={{ fontSize: 50, padding: 0 }} />
+        </Button>
+        <Box>
+          <Button
+            sx={{ padding: 0 }}
+            onClick={() => {
+              ChangeDirectionSnake(undefined, "ArrowLeft");
+            }}
+          >
+            <ArrowCircleLeftOutlinedIcon
+              sx={{ marginRight: "10px", fontSize: 50 }}
+            />
+          </Button>
+          <Button
+            sx={{ padding: 0 }}
+            onClick={() => {
+              ChangeDirectionSnake(undefined, "ArrowRight");
+            }}
+          >
+            <ArrowCircleRightOutlinedIcon
+              sx={{ marginLeft: "10px", fontSize: 50 }}
+            />
+          </Button>
+        </Box>
+        <Button
+          sx={{ padding: 0, position: "relative", bottom: 20 }}
+          onClick={() => {
+            ChangeDirectionSnake(undefined, "ArrowDown");
+          }}
+        >
+          <ArrowCircleDownOutlinedIcon sx={{ fontSize: 50 }} />
+        </Button>
+      </Box>
     </>
   );
 };
 
-export default Canvas;
+export default SnakeGame;
