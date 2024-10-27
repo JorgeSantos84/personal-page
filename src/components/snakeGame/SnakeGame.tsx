@@ -16,7 +16,7 @@ interface SnakePosition {
 }
 
 interface SnakeGameProps {
-  gameOver?: (data: boolean) => void;
+  gameOver?: (gameOverStatus: boolean, finalResult: number) => void;
 }
 
 export type NewDirection = {
@@ -246,13 +246,14 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
 
   const snakeCollide = (snakePosition: SnakePosition[]) => {
     const sizeCanvasRows = rows * blockSize;
+    const sizeCanvasCols = cols * blockSize;
     const snakeHead = snakePosition[0];
     const snakeBody = snakePosition.slice(1);
 
     if (
-      snakeHead.snakeX > sizeCanvasRows ||
+      snakeHead.snakeX >= sizeCanvasCols ||
       snakeHead.snakeX < 0 ||
-      snakeHead.snakeY > sizeCanvasRows ||
+      snakeHead.snakeY >= sizeCanvasRows ||
       snakeHead.snakeY < 0
     ) {
       return true;
@@ -279,7 +280,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
   const calcBonusPoints = () => {
     // Will decrement 10 points for each second passed
     const pointDecrease = 10;
-    const interval = 500; // Time in milliseconds to execute
+    const interval = 1000; // Time in milliseconds to execute
     // setExtraPoints(extraPointsDefault);
     extraPointsRef.current = extraPointsDefault;
 
@@ -290,10 +291,9 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
 
     const newIntervalId = setInterval(() => {
       extraPointsRef.current = extraPointsRef.current - pointDecrease;
-
       if (extraPointsRef.current <= 0) {
         clearInterval(newIntervalId); // Clear the interval when points reach zero
-        return 0; // Reset to default points
+        extraPointsRef.current = 0;
       }
     }, interval);
 
@@ -334,7 +334,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
       // images.then(startDefaultCanvasGame);
       // setGameStarted(false);
       if (gameOver) {
-        gameOver(false);
+        gameOver(false, totalScore);
       }
 
       return;
@@ -452,7 +452,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
     const eventKey = event ? event.key : keyTouched;
     switch (eventKey) {
       case "ArrowUp":
-        if (lastDirection.current.y != 25) {
+        if (lastDirection.current.y != blockSize) {
           setVelocityX(0);
           setVelocityY(-1 * blockSize);
           lastDirection.current = { x: 0, y: -1 * blockSize };
@@ -465,7 +465,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
         }
         break;
       case "ArrowDown":
-        if (lastDirection.current.y != -25) {
+        if (lastDirection.current.y != -blockSize) {
           setVelocityX(0);
           setVelocityY(1 * blockSize);
           lastDirection.current = { x: 0, y: 1 * blockSize };
@@ -478,7 +478,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
         }
         break;
       case "ArrowLeft":
-        if (lastDirection.current.x != 25) {
+        if (lastDirection.current.x != blockSize) {
           setVelocityX(-1 * blockSize);
           setVelocityY(0);
           lastDirection.current = { x: -1 * blockSize, y: 0 };
@@ -492,7 +492,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
 
         break;
       case "ArrowRight":
-        if (lastDirection.current.x != -25) {
+        if (lastDirection.current.x != -blockSize) {
           setVelocityX(1 * blockSize);
           setVelocityY(0);
           lastDirection.current = { x: 1 * blockSize, y: 0 };
@@ -510,13 +510,24 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
   };
 
   useEffect(() => {
+    calcBonusPoints();
+  }, []);
+
+  useEffect(() => {
     // if (gameStarted) {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key) {
-        ChangeDirectionSnake(event, undefined);
+        if (
+          ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
+            event.key,
+          )
+        ) {
+          //this is to prevent screen from moving while gaming
+          event.preventDefault();
+          ChangeDirectionSnake(event, undefined);
+        }
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -554,7 +565,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
         }}
       >
         <Button
-          sx={{ padding: 0, position: "relative", top: 20 }}
+          sx={{ padding: 0, position: "relative" }}
           onClick={() => {
             ChangeDirectionSnake(undefined, "ArrowUp");
           }}
@@ -569,7 +580,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
             }}
           >
             <ArrowCircleLeftOutlinedIcon
-              sx={{ marginRight: "10px", fontSize: 50 }}
+              sx={{ marginRight: "20px", fontSize: 50 }}
             />
           </Button>
           <Button
@@ -579,12 +590,12 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
             }}
           >
             <ArrowCircleRightOutlinedIcon
-              sx={{ marginLeft: "10px", fontSize: 50 }}
+              sx={{ marginLeft: "20px", fontSize: 50 }}
             />
           </Button>
         </Box>
         <Button
-          sx={{ padding: 0, position: "relative", bottom: 20 }}
+          sx={{ padding: 0, position: "relative" }}
           onClick={() => {
             ChangeDirectionSnake(undefined, "ArrowDown");
           }}

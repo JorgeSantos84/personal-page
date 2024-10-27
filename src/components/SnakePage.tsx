@@ -4,12 +4,17 @@ import { Box, Button } from "@mui/material";
 import SnakeGame from "./snakeGame/SnakeGame";
 import { useState } from "react";
 import DefaultCanvasSnakeGame from "./snakeGame/DefaultCanvasSnakeGame";
+import AlertDialogSlide from "./smallComponents/ModalGameOver";
 
 const SnakePage = () => {
   const [starGame, setStartGame] = useState(false);
+  const [finalResult, setFinalResult] = useState(0);
+  const [showSchoreModal, setShowScoreModal] = useState(false);
 
-  const handleGameOver = (data: boolean) => {
-    setStartGame(data);
+  const handleGameOver = (statusGameOver: boolean, finalResult: number) => {
+    setStartGame(statusGameOver);
+    setFinalResult(finalResult);
+    setShowScoreModal(true);
   };
   return (
     <Page>
@@ -35,6 +40,9 @@ const SnakePage = () => {
               <Button variant="outlined" onClick={() => setStartGame(true)}>
                 Start
               </Button>
+              {showSchoreModal && (
+                <AlertDialogSlide finalResult={finalResult} />
+              )}
             </Box>
           </>
         )}

@@ -68,6 +68,11 @@
   }
 }
 
+.dialog-game-over {
+  background-color: rgba(18, 18, 18, 0.9);
+  color: var(--font-color-main);
+}
+
 .page {
   /* height: calc(93vh - 100px); */
   display: flex;
