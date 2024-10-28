@@ -33,7 +33,7 @@ type SnakeTurnedPosition = {
 
 // Board size and configuration
 export const blockSize = 15;
-const rows = 30;
+const rows = 20;
 const cols = 20;
 const boardWidth = cols * blockSize;
 const boardHeight = rows * blockSize;
@@ -478,7 +478,10 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
         }
         break;
       case "ArrowLeft":
-        if (lastDirection.current.x != blockSize) {
+        if (
+          lastDirection.current.x != blockSize &&
+          (lastDirection.current.x != 0 || lastDirection.current.y != 0)
+        ) {
           setVelocityX(-1 * blockSize);
           setVelocityY(0);
           lastDirection.current = { x: -1 * blockSize, y: 0 };
@@ -570,7 +573,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
             ChangeDirectionSnake(undefined, "ArrowUp");
           }}
         >
-          <ArrowCircleUpOutlinedIcon sx={{ fontSize: 50, padding: 0 }} />
+          <ArrowCircleUpOutlinedIcon sx={{ fontSize: 60, padding: 0 }} />
         </Button>
         <Box>
           <Button
@@ -580,7 +583,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
             }}
           >
             <ArrowCircleLeftOutlinedIcon
-              sx={{ marginRight: "20px", fontSize: 50 }}
+              sx={{ marginRight: "30px", fontSize: 60 }}
             />
           </Button>
           <Button
@@ -590,7 +593,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
             }}
           >
             <ArrowCircleRightOutlinedIcon
-              sx={{ marginLeft: "20px", fontSize: 50 }}
+              sx={{ marginLeft: "30px", fontSize: 60 }}
             />
           </Button>
         </Box>
@@ -600,7 +603,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ gameOver }) => {
             ChangeDirectionSnake(undefined, "ArrowDown");
           }}
         >
-          <ArrowCircleDownOutlinedIcon sx={{ fontSize: 50 }} />
+          <ArrowCircleDownOutlinedIcon sx={{ fontSize: 60 }} />
         </Button>
       </Box>
     </>

@@ -79,10 +79,19 @@ export default function AlertDialogSlide({
             >
               SCORE: {finalResult}
             </Box>
-            {language === "PT"
-              ? "Obrigado por ter jogado!!"
-              : "Thanks for playing!!"}
-            <InsertEmoticonIcon sx={{ color: "#bdb40d" }} />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+                marginBottom: "10px",
+              }}
+            >
+              {language === "PT"
+                ? "Obrigado por ter jogado!!"
+                : "Thanks for playing!!"}
+              <InsertEmoticonIcon sx={{ color: "#bdb40d" }} />
+            </Box>
           </Box>
         </DialogContent>
         <DialogActions className="dialog-game-over">

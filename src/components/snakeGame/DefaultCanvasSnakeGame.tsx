@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 
 // Board size and configuration
 const blockSize = 15;
-const rows = 30;
+const rows = 20;
 const cols = 20;
 const boardWidth = cols * blockSize;
 const boardHeight = rows * blockSize;
