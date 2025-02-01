@@ -50,7 +50,7 @@ const MainPage = () => {
                 alt="Description of the image"
                 style={{
                   width: "100%", // Ensures the image takes the full width of the container
-                  height: "auto", // Maintains the aspect ratio
+                  height: "auto", // Maintains the aspect ratio //
                 }}
               />
             </Box>
