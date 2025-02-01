@@ -31,6 +31,7 @@ function App() {
           }}
         >
           <Routes>
+            <Route path="/" element={<MainPage />} />
             <Route path="/personal-page" element={<MainPage />} />
             <Route path="/work-experience" element={<WorkInfoPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
