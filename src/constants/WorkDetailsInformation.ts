@@ -65,6 +65,13 @@ export const workInformationEN: WorkDetails[] = [
       "HTML",
       "CSS",
     ],
+    fullInfo: [
+      "Developed microservices using Java, Spring, and MySQL, including RESTful APIs for payment processing (e.g., MbWay, Multibanco, credit card)",
+      "Designed and implemented a digital counter web application from scratch, encompassing both frontend (JavaScript, Bootstrap, HTML, CSS) and backend development",
+      "Contributed to the early development of a web application for managing signed digital invoices in PDF format, handling frontend design and backend tasks",
+      "Leading the development of a PWA with standalone functionalities, ensuring seamless offline and online experiences using Google's Workbox framework for service worker management",
+      "Designed and implemented both frontend and backend components of the PWA, leveraging Spring for backend development and Spring Data JPA for database access and management",
+    ],
   },
   {
     title: "Web Developer/Content",
@@ -97,7 +104,7 @@ export const workInformationEN: WorkDetails[] = [
       "Management of team in the sales and services process",
       "Content Creator for the Fnac Expert platform (from 2017 to 2018)",
     ],
-    fullInfo: ["A PREENCHER MAIS TARDE"],
+    fullInfo: [],
   },
 ];
 

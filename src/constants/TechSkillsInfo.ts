@@ -40,6 +40,11 @@ const TechSkillsInfo: TechSkillsInfoProps[] = [
   },
   {
     typeTech: TypeTech.Library,
+    nameTech: "Lombok",
+    percentageSkill: 90,
+  },
+  {
+    typeTech: TypeTech.Library,
     nameTech: "Material UI",
     percentageSkill: 60,
   },
@@ -86,7 +91,12 @@ const TechSkillsInfo: TechSkillsInfoProps[] = [
   {
     typeTech: TypeTech.Methodology,
     nameTech: "Agile",
-    percentageSkill: 70,
+    percentageSkill: 80,
+  },
+  {
+    typeTech: TypeTech.Methodology,
+    nameTech: "Scrum",
+    percentageSkill: 80,
   },
   {
     typeTech: TypeTech.TestingTool,

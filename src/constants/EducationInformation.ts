@@ -3,6 +3,18 @@ import { WorkDetails } from "../types/workDetails";
 
 const educationInformationEN: WorkDetails[] = [
   {
+    title: "Professional Qualification in Advanced SQL",
+    company: "Cinel Institute",
+    companyLogo: "null",
+    beginYear: "2024-05",
+    endYear: "2024-11",
+    details: [
+      "Formation to develop skills involving manipulation of data in databases using SQL",
+    ],
+    fullInfo: [],
+    technologies: ["SQL", "MySQL", "Microsoft Access"],
+  },
+  {
     title: "Professional Qualification in Web Development",
     company: "Cinel Institute",
     companyLogo: "null",
@@ -44,6 +56,16 @@ const educationInformationEN: WorkDetails[] = [
 ];
 
 const educationInformationPT: WorkDetails[] = [
+  {
+    title: "Formação em SQL Avançado",
+    company: "Cinel Institute",
+    companyLogo: "null",
+    beginYear: "2024-05",
+    endYear: "2024-11",
+    details: ["Formação de sistema de gestão de base de dados com SQL e MySQL"],
+    fullInfo: [],
+    technologies: ["SQL", "MySQL", "Microsoft Access"],
+  },
   {
     title: "Formação em Desenvolvimento Aplicações Web",
     company: "Cinel Institute",
